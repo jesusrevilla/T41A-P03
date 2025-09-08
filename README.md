@@ -17,6 +17,8 @@ PostgreSQL ofrece varios tipos de índices, cada uno optimizado para distintos c
 | GiST           | Índice generalizado para datos espaciales o personalizados.      | Geometría, texto aproximado                        |
 | BRIN           | Índice compacto para grandes tablas ordenadas.                   | Consultas en columnas con valores correlacionados  |
 
+---
+
 🛠️ Cómo crear un índice
 
 ```sql
@@ -33,6 +35,7 @@ CREATE INDEX idx_autor_anio ON libros(autor, anio);
 -- Índice único (impide duplicados)
 CREATE UNIQUE INDEX idx_isbn ON libros(isbn);
 ```
+
 ---
 🚀 ¿Cuándo usar índices?
 Usa índices cuando:
@@ -51,6 +54,7 @@ Columnas con muchos valores repetidos (como booleanos).
 
 Columnas que cambian constantemente (los índices se deben actualizar).
 ---
+
 🔍 Consultar el uso de índices
 Puedes verificar si PostgreSQL está usando un índice con:
 
