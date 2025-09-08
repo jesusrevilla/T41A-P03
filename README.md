@@ -63,9 +63,8 @@ EXPLAIN SELECT * FROM libros WHERE titulo = 'Cien Años de Soledad';
 ```
 Esto te muestra el plan de ejecución. Si ves Index Scan, ¡el índice está funcionando!
 
-🧹 Mantenimiento de índices
-REINDEX: Reconstituye un índice dañado o ineficiente.
+🧹 Mantenimiento de índices  
 
-DROP INDEX: Elimina un índice que ya no se necesita.
-
-VACUUM / ANALYZE: Ayuda al optimizador a decidir cuándo usar índices.
+- **REINDEX**: Reconstituye un índice dañado o ineficiente.
+- **DROP INDEX**: Elimina un índice que ya no se necesita.
+- **VACUUM / ANALYZE**: Ayuda al optimizador a decidir cuándo usar índices.
