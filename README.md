@@ -40,19 +40,19 @@ CREATE UNIQUE INDEX idx_isbn ON libros(isbn);
 🚀 ¿Cuándo usar índices?
 Usa índices cuando:
 
-Realizas muchas búsquedas por una columna específica.
+- Realizas muchas búsquedas por una columna específica.
 
-Filtras o ordenas frecuentemente por esa columna.
+- Filtras o ordenas frecuentemente por esa columna.
 
-La tabla tiene muchos registros y las consultas se vuelven lentas.
+- La tabla tiene muchos registros y las consultas se vuelven lentas.
 
 Evita crear índices en:
 
-Tablas pequeñas (PostgreSQL puede escanearlas rápido).
+- Tablas pequeñas (PostgreSQL puede escanearlas rápido).
 
-Columnas con muchos valores repetidos (como booleanos).
+- Columnas con muchos valores repetidos (como booleanos).
 
-Columnas que cambian constantemente (los índices se deben actualizar).
+- Columnas que cambian constantemente (los índices se deben actualizar).
 ---
 
 🔍 Consultar el uso de índices
