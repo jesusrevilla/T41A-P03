@@ -25,10 +25,14 @@ CREATE INDEX idx_titulo ON libros(titulo);
 ```
 
 -- Índice compuesto en varias columnas
+```sql
 CREATE INDEX idx_autor_anio ON libros(autor, anio);
-
+```
+```sql
 -- Índice único (impide duplicados)
 CREATE UNIQUE INDEX idx_isbn ON libros(isbn);
+```
+
 🚀 ¿Cuándo usar índices?
 Usa índices cuando:
 
@@ -49,8 +53,9 @@ Columnas que cambian constantemente (los índices se deben actualizar).
 🔍 Consultar el uso de índices
 Puedes verificar si PostgreSQL está usando un índice con:
 
-sql
+```sql
 EXPLAIN SELECT * FROM libros WHERE titulo = 'Cien Años de Soledad';
+```
 Esto te muestra el plan de ejecución. Si ves Index Scan, ¡el índice está funcionando!
 
 🧹 Mantenimiento de índices
