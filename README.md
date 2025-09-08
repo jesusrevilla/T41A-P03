@@ -18,11 +18,11 @@ PostgreSQL ofrece varios tipos de índices, cada uno optimizado para distintos c
 | BRIN           | Índice compacto para grandes tablas ordenadas.                   | Consultas en columnas con valores correlacionados  |
 
 🛠️ Cómo crear un índice
-sql
--- Índice simple en una columna
+
+```sql
 -- Crear un índice en la columna 'titulo' de la tabla 'libros'
 CREATE INDEX idx_titulo ON libros(titulo);
-
+```
 
 -- Índice compuesto en varias columnas
 CREATE INDEX idx_autor_anio ON libros(autor, anio);
