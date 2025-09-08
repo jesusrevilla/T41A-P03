@@ -1,45 +1,61 @@
 # T41A-P03
 Descripción de índices en PostgreSQL
 
--Crear la tabla libros:
+📘 ¿Qué es un índice en PostgreSQL?
+Un índice es una estructura de datos que permite acceder rápidamente a las filas de una tabla    
+según los valores de una o más columnas. Funciona como el índice de un libro: en lugar de leer   
+página por página, puedes ir directo al contenido que buscas.
+
+⚙️ Tipos de índices en PostgreSQL
+PostgreSQL ofrece varios tipos de índices, cada uno optimizado para distintos casos de uso:
+
+| Tipo de Índice | Descripción                                                      | Uso común                                           |
+|----------------|------------------------------------------------------------------|-----------------------------------------------------|
+| B-tree         | El más común. Ordena los datos para búsquedas rápidas.           | Comparaciones (=, <, >, BETWEEN)                   |
+| Hash           | Usa funciones hash para búsquedas exactas.                       | Comparaciones con =                                |
+| GIN            | Índice invertido para arrays, JSONB, texto completo.             | Búsqueda en documentos o arrays                    |
+| GiST           | Índice generalizado para datos espaciales o personalizados.      | Geometría, texto aproximado                        |
+| BRIN           | Índice compacto para grandes tablas ordenadas.                   | Consultas en columnas con valores correlacionados  |
+
+🛠️ Cómo crear un índice
+sql
+-- Índice simple en una columna
+-- Crear un índice en la columna 'titulo' de la tabla 'libros'
+CREATE INDEX idx_titulo ON libros(titulo);
 
 
---Insertar tres registros en la tabla libros:
+-- Índice compuesto en varias columnas
+CREATE INDEX idx_autor_anio ON libros(autor, anio);
 
+-- Índice único (impide duplicados)
+CREATE UNIQUE INDEX idx_isbn ON libros(isbn);
+🚀 ¿Cuándo usar índices?
+Usa índices cuando:
 
+Realizas muchas búsquedas por una columna específica.
 
+Filtras o ordenas frecuentemente por esa columna.
 
---Sección 2: Índices
---Crear un índice en el campo titulo de la tabla libros:
+La tabla tiene muchos registros y las consultas se vuelven lentas.
 
+Evita crear índices en:
 
---Sección 3: Consultas y Relaciones
---Crear la tabla miembros:
+Tablas pequeñas (PostgreSQL puede escanearlas rápido).
 
+Columnas con muchos valores repetidos (como booleanos).
 
---Insertar dos registros en la tabla miembros:
+Columnas que cambian constantemente (los índices se deben actualizar).
 
+🔍 Consultar el uso de índices
+Puedes verificar si PostgreSQL está usando un índice con:
 
+sql
+EXPLAIN SELECT * FROM libros WHERE titulo = 'Cien Años de Soledad';
+Esto te muestra el plan de ejecución. Si ves Index Scan, ¡el índice está funcionando!
 
---Crear la tabla prestamos para relacionar libros y miembros:
+🧹 Mantenimiento de índices
+REINDEX: Reconstituye un índice dañado o ineficiente.
 
+DROP INDEX: Elimina un índice que ya no se necesita.
 
-
-
---Insertar registros en la tabla prestamos:
-
-
-
-
---Sección 4: Consultas Avanzadas
---Consulta para obtener los títulos de los libros y los nombres de los miembros que los han prestado:
-
-
-
-
---Consulta para contar cuántos libros ha prestado cada miembro:
-
-
-
-
---Consulta para obtener los nombres de los miembros que han prestado el libro titulado 'Cien Años de Soledad'
+VACUUM / ANALYZE: Ayuda al optimizador a decidir cuándo usar índices.
