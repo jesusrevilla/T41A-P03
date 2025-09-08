@@ -68,3 +68,7 @@ Esto te muestra el plan de ejecución. Si ves Index Scan, ¡el índice está fun
 - **REINDEX**: Reconstituye un índice dañado o ineficiente.
 - **DROP INDEX**: Elimina un índice que ya no se necesita.
 - **VACUUM / ANALYZE**: Ayuda al optimizador a decidir cuándo usar índices.
+
+  🔍 ¿Qué son los operadores relacionales?
+Los operadores relacionales comparan dos valores y devuelven un resultado booleano:   
+`TRUE`, `FALSE` o `NULL`. Se usan principalmente en cláusulas como `WHERE`, `JOIN`, `HAVING`, y en expresiones condicionales.
