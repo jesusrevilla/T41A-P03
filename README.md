@@ -73,4 +73,42 @@ Esto te muestra el plan de ejecución. Si ves Index Scan, ¡el índice está fun
 🔍 ¿Qué son los operadores relacionales?
 Los operadores relacionales comparan dos valores y devuelven un resultado booleano:   
 `TRUE`, `FALSE` o `NULL`. Se usan principalmente en cláusulas como `WHERE`, `JOIN`, `HAVING`, y en expresiones condicionales.
+
+📋 Tabla de operadores relacionales en SQL
+| Operador | Significado               | Ejemplo                          | Resultado esperado             |
+|----------|---------------------------|----------------------------------|--------------------------------|
+| =        | Igual a                   | `autor = 'Cervantes'`            | Verdadero si autor es Cervantes |
+| <>       | Distinto de               | `anio <> 2020`                   | Verdadero si el año no es 2020 |
+| !=       | Distinto de (alternativo) | `anio != 2020`                   | Igual que `<>`                 |
+| >        | Mayor que                 | `precio > 100`                   | Verdadero si precio es mayor a 100 |
+| <        | Menor que                 | `edad < 18`                      | Verdadero si edad es menor a 18 |
+| >=       | Mayor o igual que         | `stock >= 10`                    | Verdadero si hay al menos 10 unidades |
+| <=       | Menor o igual que         | `descuento <= 20`                | Verdadero si el descuento es 20 o menos |
+| IS NULL  | Es nulo                   | `fecha_entrega IS NULL`          | Verdadero si no hay fecha registrada |
+| IS NOT NULL | No es nulo             | `email IS NOT NULL`              | Verdadero si el email está presente |
+
 ---
+
+🧠 ¿Dónde se usan?
+1. Filtrar resultados
+```sql
+SELECT * FROM libros WHERE anio > 2000;
+```
+2. Condiciones en relaciones
+```sql
+SELECT * FROM prestamos
+WHERE fecha_prestamo IS NOT NULL;
+```
+3. Validaciones en procedimientos o funciones
+```sql
+IF stock <= 0 THEN
+  RAISE NOTICE 'Producto agotado';
+END IF;
+```
+
+⚠️ Consideraciones importantes
+Comparar con `NULL` requiere `IS NULL` o `IS NOT NULL`, no `=` ni `<>`.
+
+En PostgreSQL, puedes usar `!=` aunque `<>` es el estándar SQL.
+
+Las comparaciones pueden verse afectadas por el tipo de datos (por ejemplo, texto vs número).
