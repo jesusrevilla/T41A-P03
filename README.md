@@ -42,7 +42,7 @@ Usa índices cuando:
 
 - Realizas muchas búsquedas por una columna específica.
 
-- Filtras o ordenas frecuentemente por esa columna.
+- Filtras u ordenas frecuentemente por esa columna.
 
 - La tabla tiene muchos registros y las consultas se vuelven lentas.
 
