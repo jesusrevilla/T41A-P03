@@ -6,7 +6,7 @@ Un índice es una estructura de datos que permite acceder rápidamente a las fil
 según los valores de una o más columnas. Funciona como el índice de un libro: en lugar de leer   
 página por página, puedes ir directo al contenido que buscas.
 
-⚙️ Tipos de índices en PostgreSQL
+⚙️ Tipos de índices en PostgreSQL   
 PostgreSQL ofrece varios tipos de índices, cada uno optimizado para distintos casos de uso:
 
 | Tipo de Índice | Descripción                                                      | Uso común                                           |
